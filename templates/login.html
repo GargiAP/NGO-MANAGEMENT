@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.min.css') }}">
+    
+</head>
+<body>
+    <div class="signin-container">
+        <form class="signin-card">
+            <h1 class="signin-title">Login</h1>
+
+            <div class="input-container">
+                <i class="fas fa-user icon"></i>
+                <input type="text" placeholder="Username" required>
+            </div>
+
+            <div class="row">
+                <div class="input-container">
+                    <i class="fas fa-user-lock icon"></i>
+                    <input type="password" placeholder="Set Password" required>
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-lock icon"></i>
+                    <input type="password" placeholder="Confirm Password" required>
+                </div>
+            </div>
+
+            <button class="signup-button" type="submit">Login</button>
+
+            <div class="signin-subtext">
+                <p>Don’t have an account?</p>
+                <p class="create-account">Create Account</p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

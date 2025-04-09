@@ -1,0 +1,104 @@
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Modal Box */
+.modal-content {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+}
+
+/* Close Button */
+.close-icon {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #444;
+}
+
+/* Modal Header */
+.modal-content h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #0a2d57;
+    margin-bottom: 30px;
+}
+
+/* Input Wrapper */
+.input-container {
+    display: flex;
+    align-items: center;
+    background-color: #f2f4f7;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+}
+
+/* Icon Style */
+.input-container .icon {
+    font-family: "Font Awesome 5 Free", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    margin-right: 10px;
+    color: #2d2d2d;
+    font-size: 18px;
+}
+
+/* Input Field Style */
+.input-container input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Row for 2-column inputs */
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+/* Buttons */
+.volunteer-button {
+    background-color: #062e64;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.volunteer-button:hover {
+    background-color: #094b95;
+}
+
+/* Responsive Fix */
+@media (max-width: 600px) {
+    .row {
+        flex-direction: column;
+    }
+}

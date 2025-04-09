@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Volunteer Events</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='volunteerpg.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.min.css') }}">
+</head>
+<body>
+
+  {% include 'navbar.html' %}
+
+  <div class="volunteer-wrapper">
+    <h2 class="page-title">Lists of NGO Events</h2>
+    <button class="register-main-btn" onclick="openEventModal()">Register Event</button>
+
+    <div class="card-container">
+      {% for post in blog_posts %}
+        <div class="card">
+          <img src="{{ post.image }}" alt="{{ post.title }}" class="card-image" />
+          <h2 class="card-title">{{ post.title }}</h2>
+          <p class="card-description">{{ post.description }}</p>
+          <p><strong>Venue:</strong> {{ post.venue }}</p>
+          <p><strong>Date:</strong> {{ post.date }} | <strong>Time:</strong> {{ post.time }}</p>
+          <button class="register-btn" onclick="openVolunteerModal()">Register Now</button>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Volunteer Modal -->
+  <div id="volunteerModal" class="modal-overlay" style="display: none;" onclick="closeVolunteerModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      {% include 'volunteerform.html' %}
+      <span class="close-icon" onclick="closeVolunteerModal()">&times;</span>
+    </div>
+  </div>
+
+  <!-- Event Modal -->
+  <div id="eventModal" class="modal-overlay" style="display: none;" onclick="closeEventModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      {% include 'eventregister.html' %}
+      <span class="close-icon" onclick="closeEventModal()">&times;</span>
+    </div>
+  </div>
+
+  <script>
+    function openVolunteerModal() {
+      document.getElementById('volunteerModal').style.display = 'flex';
+    }
+    function closeVolunteerModal() {
+      document.getElementById('volunteerModal').style.display = 'none';
+    }
+
+    function openEventModal() {
+      document.getElementById('eventModal').style.display = 'flex';
+    }
+    function closeEventModal() {
+      document.getElementById('eventModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

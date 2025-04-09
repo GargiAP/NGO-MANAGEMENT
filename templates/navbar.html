@@ -1,0 +1,31 @@
+<!-- templates/navbar.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='login_modal.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.min.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.ico') }}" alt="Logo" />
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('volunteer') }}">Volunteer</a></li>
+      <li><a href="{{ url_for('donation') }}">Donation</a></li>
+    </ul>
+
+    <div class="button-container">
+      <button id="openLoginModal" class="button login-btn">Login</button>
+      <button id="openSignupModal" class="button signup-btn">Sign Up</button>
+    </div>
+    
+  </nav>
+</body>
+</html>

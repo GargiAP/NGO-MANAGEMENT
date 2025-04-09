@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NGO Connect</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='popupsignin.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <section class="home-container">
+        <h1>Give. Help. Impact</h1>
+
+        <div class="info-box">
+            <p>A Non-Governmental Organization (NGO) is a non-profit entity that operates independently of the government to address social, environmental, and humanitarian issues. These organizations work towards causes such as education, healthcare, poverty alleviation, and environmental conservation.</p>
+            <p>Our website serves as a dedicated platform that connects people with NGOs, making it easier to support meaningful causes. Visitors can explore upcoming events, stay informed about ongoing activities, and find opportunities to contribute through volunteering. Whether you want to lend a helping hand, stay updated on social initiatives, or make a difference through donations, our website is the perfect bridge between passionate individuals and organizations striving for change.</p>
+        </div>
+
+        <div class="scroll-container">
+            <div class="scroll-content">
+                {% for ngo in ngos %}
+                    <div class="ngo-box">
+                        <img src="{{ ngo.image }}" alt="{{ ngo.name }}" class="ngo-image">
+                        <p>{{ ngo.name }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <button class="close" id="closeLoginModal">×</button>
+                <div class="signin-container">
+                    <form class="signin-card">
+                        <h1 class="signin-title">Login</h1>
+
+                        <div class="input-container">
+                            <i class="fa fa-user icon"></i>
+                            <input type="text" placeholder="Username" required />
+                        </div>
+
+                        <div class="input-container">
+                            <i class="fa fa-lock icon"></i>
+                            <input type="password" placeholder="Password" required />
+                        </div>
+
+                        <button class="signup-button" type="submit">Login</button>
+
+                        <div class="signin-subtext">
+                            <p>Don’t have an account?</p>
+                            <p class="create-account">Create Account</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signup Modal -->
+        <div id="signupModal" class="popup-overlay" style="display: none;">
+            <div class="popup-card">
+                <button class="popup-close" id="closeSignupModal">×</button>
+                <h1 class="popup-title">Sign Up</h1>
+                <h3 class="popup-subtitle">Sign Up as?</h3>
+
+                <div class="popup-options">
+                    <a href="/ngosignup" class="popup-button" target="_self">NGO</a>
+                    <a href="/signin" class="popup-button" target="_self">Volunteer</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Login Modal
+            const openLoginBtn = document.getElementById('openLoginModal');
+            const closeLoginBtn = document.getElementById('closeLoginModal');
+            const loginModal = document.getElementById('loginModal');
+
+            if (openLoginBtn && closeLoginBtn && loginModal) {
+                openLoginBtn.onclick = () => loginModal.style.display = 'flex';
+                closeLoginBtn.onclick = () => loginModal.style.display = 'none';
+                window.onclick = (e) => {
+                    if (e.target === loginModal) loginModal.style.display = 'none';
+                };
+            }
+
+            // Signup Modal
+            const openSignupBtn = document.getElementById('openSignupModal');
+            const closeSignupBtn = document.getElementById('closeSignupModal');
+            const signupModal = document.getElementById('signupModal');
+
+            if (openSignupBtn && closeSignupBtn && signupModal) {
+                openSignupBtn.onclick = () => signupModal.style.display = 'flex';
+                closeSignupBtn.onclick = () => signupModal.style.display = 'none';
+                window.onclick = (e) => {
+                    if (e.target === signupModal) signupModal.style.display = 'none';
+                };
+            }
+
+            // Link login "Create Account" to open Signup Modal
+            const createAccountLink = document.querySelector('.create-account');
+            if (createAccountLink) {
+                createAccountLink.onclick = () => {
+                    loginModal.style.display = 'none';
+                    signupModal.style.display = 'flex';
+                };
+            }
+        });
+    </script>
+
+</body>
+</html>

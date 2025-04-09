@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Register</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.min.css') }}">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='volunteerform.css') }}" />
+</head>
+<body>
+  <div class="volunteer-wrapper">
+    <div class="volunteer-card">
+      <h2>Event Register</h2>
+
+      <div class="input-container">
+        <i class="fas fa-user icon"></i>
+        <input type="text" placeholder="NGO Name" />
+      </div>
+
+      <div class="input-container">
+        <i class="fas fa-envelope icon"></i>
+        <input type="text" placeholder="Description" />
+      </div>
+
+      <div class="row">
+        <div class="input-container">
+          <i class="fas fa-map-marked-alt icon"></i>
+          <input type="text" placeholder="Venue" />
+        </div>
+        <div class="input-container">
+            <i class="fa-solid fa-phone icon"></i>
+          <input type="tel" placeholder="Contact No." />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-container">
+          <i class="fas fa-calendar-alt icon"></i>
+          <input type="date" placeholder="Date" />
+        </div>
+        <div class="input-container">
+          <i class="fas fa-clock icon"></i>
+          <input type="time" placeholder="Time" />
+        </div>
+      </div>
+
+      <button class="volunteer-button">Volunteer</button>
+    </div>
+  </div>
+</body>
+</html>

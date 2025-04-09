@@ -1,0 +1,67 @@
+<!-- templates/signin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Volunteer Sign Up</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='signin.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="signin-container">
+    <div class="signin-card">
+      <!-- Close Button -->
+      <a href="/" class="popup-close">×</a>
+
+      <h2>Sign Up</h2>
+
+      <div class="input-container">
+        <i class="fa fa-user icon"></i>
+        <input type="text" placeholder="Username" />
+      </div>
+
+      <div class="input-container">
+        <i class="fa fa-envelope icon"></i>
+        <input type="email" placeholder="Email ID" />
+      </div>
+
+      <div class="row">
+        <div class="input-container">
+          <i class="fa fa-calendar icon"></i>
+          <input type="number" placeholder="Age" />
+        </div>
+        <div class="input-container">
+          <i class="fa fa-phone icon"></i>
+          <input type="tel" placeholder="Contact No." />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-container">
+          <i class="fa fa-venus-mars icon"></i>
+          <input type="text" placeholder="Gender" />
+        </div>
+        <div class="input-container">
+          <i class="fa fa-map-marker-alt icon"></i>
+          <input type="text" placeholder="Address" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-container">
+          <i class="fa fa-lock icon"></i>
+          <input type="password" placeholder="Set Password" />
+        </div>
+        <div class="input-container">
+          <i class="fa fa-lock icon"></i>
+          <input type="password" placeholder="Confirm Password" />
+        </div>
+      </div>
+
+      <button class="signup-button">Sign Up</button>
+    </div>
+  </div>
+
+</body>
+</html>
