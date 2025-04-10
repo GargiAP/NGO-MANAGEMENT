@@ -36,17 +36,17 @@
             <div class="modal-content">
                 <button class="close" id="closeLoginModal">×</button>
                 <div class="signin-container">
-                    <form class="signin-card">
+                    <form class="signin-card" action="/login" method="POST">
                         <h1 class="signin-title">Login</h1>
 
                         <div class="input-container">
                             <i class="fa fa-user icon"></i>
-                            <input type="text" placeholder="Username" required />
+                            <input type="text" name="username" placeholder="Username/Ngo Name" required />
                         </div>
 
                         <div class="input-container">
                             <i class="fa fa-lock icon"></i>
-                            <input type="password" placeholder="Password" required />
+                            <input type="password" name="password" placeholder="Password" required />
                         </div>
 
                         <button class="signup-button" type="submit">Login</button>

@@ -7,9 +7,7 @@
     <!-- Local CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='volunteerform.css') }}">
-
     <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.min.css') }}">
-
 </head>
 <body>
 
@@ -17,44 +15,47 @@
         <div class="volunteer-card">
             <h2>Volunteer</h2>
 
-            <div class="input-container">
-                <i class="fa-solid fa-user icon"></i>
-                <input type="text" placeholder="Username" />
-            </div>
-
-            <div class="input-container">
-                <i class="fa-solid fa-envelope icon"></i>
-                <input type="email" placeholder="Email ID" />
-            </div>
-
-            <div class="row">
+            <form action="{{ url_for('register_volunteer') }}" method="POST">
                 <div class="input-container">
-                    <i class="fa-solid fa-calendar icon"></i>
-                    <input type="number" placeholder="Age" />
+                    <i class="fa-solid fa-user icon"></i>
+                    <input type="text" name="username" placeholder="Username" required />
                 </div>
-                <div class="input-container">
-                    <i class="fa-solid fa-phone icon"></i>
-                    <input type="tel" placeholder="Contact No." />
-                </div>
-            </div>
 
-            <div class="row">
                 <div class="input-container">
-                    <i class="fa-solid fa-venus-mars icon"></i>
-                    <input type="text" placeholder="Gender" />
+                    <i class="fa-solid fa-envelope icon"></i>
+                    <input type="email" name="email" placeholder="Email ID" required />
                 </div>
+
+                <div class="row">
+                    <div class="input-container">
+                        <i class="fa-solid fa-calendar icon"></i>
+                        <input type="number" name="age" placeholder="Age" required />
+                    </div>
+                    <div class="input-container">
+                        <i class="fa-solid fa-phone icon"></i>
+                        <input type="tel" name="contact" placeholder="Contact No." required />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-container">
+                        <i class="fa-solid fa-venus-mars icon"></i>
+                        <input type="text" name="gender" placeholder="Gender" required />
+                    </div>
+                    <div class="input-container">
+                        <i class="fa-solid fa-map-marker-alt icon"></i>
+                        <input type="text" name="address" placeholder="Address" required />
+                    </div>
+                </div>
+
                 <div class="input-container">
-                    <i class="fa-solid fa-map-marker-alt icon"></i>
-                    <input type="text" placeholder="Address" />
+                    <i class="fa-solid fa-stethoscope icon"></i>
+                    <input type="text" name="medical_conditions" placeholder="Medical Conditions (if any)" />
                 </div>
-            </div>
 
-            <div class="input-container">
-                <i class="fa-solid fa-stethoscope icon"></i>
-                <input type="text" placeholder="Medical Conditions (if any)" />
-            </div>
+                <button type="submit" class="volunteer-button">Volunteer</button>
+            </form>
 
-            <button class="volunteer-button">Volunteer</button>
         </div>
     </div>
 
